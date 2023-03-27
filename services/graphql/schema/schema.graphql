@@ -1,5 +1,6 @@
 schema {
   query: Query
+  mutation: Mutation
 }
 
 scalar Cursor
@@ -39,4 +40,19 @@ type PanoPost {
   content: String
   slug: String!
   userID: String!
+}
+
+input CreatePanoPostInput {
+    title: String!
+    url: String!
+    content: String
+    userID: String!
+}
+
+type Mutation {
+    pano: PanoMutations!
+}
+
+type PanoMutations {
+    createPanoPost(input: CreatePanoPostInput): PanoPost
 }

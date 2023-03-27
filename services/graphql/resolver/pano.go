@@ -23,3 +23,7 @@ func (q *PanoResolver) Post(ctx context.Context, args *PanoPostArgs) (*PanoPostR
 func (q *PanoResolver) Posts(ctx context.Context, args *PanoPostsArgs) (*PanoPostsConnectionResolver, error) {
 	return NewPanoPostsResolver(ctx, q.Clients, args)
 }
+
+func (q *PanoResolver) CreatePanoPost(ctx context.Context, args *CreatePanoPostArgs) (*PanoPostResolver, error) {
+	return NewCreatePanoPostMutationResolver(ctx, q.Clients, args)
+}
