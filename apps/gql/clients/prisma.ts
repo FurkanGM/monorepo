@@ -1,10 +1,9 @@
 import { PrismaClient } from "@kampus-db/pano-prisma";
-import { env } from "~/env";
 
 export function createPrismaClient() {
-  const { DATABASE_URL, NODE_ENV } = env;
+  const { DATABASE_URL, NODE_ENV } = process.env;
 
-  const databaseUrl = new URL(DATABASE_URL);
+  const databaseUrl = new URL(DATABASE_URL as string);
 
   console.log(`🔌 setting up prisma client to ${databaseUrl.host}`);
   // NOTE: during development if you change anything in this function, remember
